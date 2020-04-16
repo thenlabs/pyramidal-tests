@@ -10,13 +10,13 @@ PyramidalTests es una extensión de [PHPUnit](https://phpunit.de/) que permite c
 
 Su principal objetivo consiste en extender las aplicaciones de [PHPUnit](https://phpunit.de/) al campo [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development). Además de esto, otro de sus objetivos consiste en facilitar la creación de casos de prueba ofreciendo ciertas ventajas como la reutilización de pruebas.
 
->Para una rápida toma de contacto usted puede clonar y modificar el proyecto [PyramidalTests-Demo](https://github.com/andaniel05/PyramidalTests-Demo). El mismo contiene ya implementado todas las funcionalidades que aquí se muestran.
+>Para una rápida toma de contacto usted puede clonar y modificar el proyecto [PyramidalTests-Demo](https://github.com/thenlabs/PyramidalTests-Demo). El mismo contiene ya implementado todas las funcionalidades que aquí se muestran.
 
 ## Instalación.
 
 ### 1. Instalando con Composer.
 
-    $ composer require --dev andaniel05/pyramidaltests dev-master
+    $ composer require --dev thenlabs/pyramidaltests dev-master
 
 ### 2. Declarando la extensión en el archivo de configuración.
 
@@ -24,19 +24,19 @@ Agregue la siguiente declaración al archivo `phpunit.xml` o equivalente.
 
 ```xml
     <extensions>
-        <extension class="Andaniel05\PyramidalTests\Extension"></extension>
+        <extension class="ThenLabs\PyramidalTests\Extension"></extension>
     </extensions>
 ```
 
 ### 3. Declarando el DSL a usar.
 
-En el archivo `bootstrap.php` o equivalente de su proyecto incluya una referencia al archivo `/vendor/andaniel05/pyramidaltests/src/DSL/PHPUnit.php`.
+En el archivo `bootstrap.php` o equivalente de su proyecto incluya una referencia al archivo `/vendor/thenlabs/pyramidaltests/src/DSL/PHPUnit.php`.
 
 ```php
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/vendor/andaniel05/pyramidaltests/src/DSL/PHPUnit.php'; // DSL
+require_once __DIR__ . '/vendor/thenlabs/pyramidaltests/src/DSL/PHPUnit.php'; // DSL
 
 // ...
 ```
@@ -49,11 +49,11 @@ El siguiente fragmento de código se corresponde con un archivo de pruebas donde
 
 ```php
 
-setTestCaseNamespace('Andaniel05\PyramidalTests\Demo\Tests');
+setTestCaseNamespace('ThenLabs\PyramidalTests\Demo\Tests');
 setTestCaseClass('PHPUnit\Framework\TestCase');
 
-use Andaniel05\PyramidalTests\Demo\Product;
-use Andaniel05\PyramidalTests\Demo\Category;
+use ThenLabs\PyramidalTests\Demo\Product;
+use ThenLabs\PyramidalTests\Demo\Category;
 
 testCase('create a product', function () {
     setUp(function () {

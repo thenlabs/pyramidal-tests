@@ -10,13 +10,13 @@ PyramidalTests is a [PHPUnit](https://phpunit.de/) extension that allows you to 
 
 Its main objective is to extend the applications of [PHPUnit](https://phpunit.de/) to the [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) field. In addition to this, another of its objectives is to facilitate the creation of test cases offering certain advantages such as the reuse of tests.
 
->You can clone and modify the project [PyramidalTests-Demo](https://github.com/andaniel05/PyramidalTests-Demo). It contains already implemented all the features shown here.
+>You can clone and modify the project [PyramidalTests-Demo](https://github.com/thenlabs/PyramidalTests-Demo). It contains already implemented all the features shown here.
 
 ## Setup.
 
 ### 1. Installing with Composer.
 
-    $ composer require --dev andaniel05/pyramidaltests dev-master
+    $ composer require --dev thenlabs/pyramidaltests dev-master
 
 ### 2. Declaring extension in configuration file.
 
@@ -24,19 +24,19 @@ Add the next statement to `phpunit.xml` or equivalent.
 
 ```xml
     <extensions>
-        <extension class="Andaniel05\PyramidalTests\Extension"></extension>
+        <extension class="ThenLabs\PyramidalTests\Extension"></extension>
     </extensions>
 ```
 
 ### 3. DSL declaration.
 
-In the `bootstrap.php` file or equivalent include the reference to `/vendor/andaniel05/pyramidaltests/src/DSL/PHPUnit.php`.
+In the `bootstrap.php` file or equivalent include the reference to `/vendor/thenlabs/pyramidaltests/src/DSL/PHPUnit.php`.
 
 ```php
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/vendor/andaniel05/pyramidaltests/src/DSL/PHPUnit.php'; // DSL
+require_once __DIR__ . '/vendor/thenlabs/pyramidaltests/src/DSL/PHPUnit.php'; // DSL
 
 // ...
 ```
@@ -49,11 +49,11 @@ The following code fragment corresponds to a test file showing the development p
 
 ```php
 
-setTestCaseNamespace('Andaniel05\PyramidalTests\Demo\Tests');
+setTestCaseNamespace('ThenLabs\PyramidalTests\Demo\Tests');
 setTestCaseClass('PHPUnit\Framework\TestCase');
 
-use Andaniel05\PyramidalTests\Demo\Product;
-use Andaniel05\PyramidalTests\Demo\Category;
+use ThenLabs\PyramidalTests\Demo\Product;
+use ThenLabs\PyramidalTests\Demo\Category;
 
 testCase('create a product', function () {
     setUp(function () {
