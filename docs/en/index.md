@@ -122,7 +122,7 @@ Once [PHPUnit](https://phpunit.de/) is invoked all the defined tests will be exe
 
     $ ./vendor/bin/phpunit --testdox
 
-![](img/full_results.png)
+![](../img/full_results.png)
 
 There is a block of text indicating that the upper section corresponds to the result of the execution of the tests of the extension, while the lower one with the rest of the tests written in the traditional way of [PHPUnit](https://phpunit.de/).
 
@@ -144,7 +144,7 @@ If in your project you intend to write ALL the tests in the style of the extensi
 
 This way when [PHPUnit](https://phpunit.de/) is executed the result will be displayed as follows.
 
-![](img/results.png)
+![](../img/results.png)
 
 ### Specifying margins for nested evidence cases.
 
