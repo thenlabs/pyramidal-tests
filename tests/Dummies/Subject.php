@@ -1,7 +1,7 @@
 <?php
 
 /*
-    Copyright (C) <2018>  <Andy Daniel Navarro Taño>
+    Copyright (C) <2020>  <Andy Daniel Navarro Taño>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Andaniel05\PyramidalTests\Tests\Dummies;
+namespace ThenLabs\PyramidalTests\Tests\Dummies;
 
 class Subject
 {

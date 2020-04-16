@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /*
-    Copyright (C) <2018>  <Andy Daniel Navarro Taño>
+    Copyright (C) <2020>  <Andy Daniel Navarro Taño>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@ declare(strict_types=1);
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Andaniel05\PyramidalTests;
+namespace ThenLabs\PyramidalTests;
 
 use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\Test;
@@ -35,7 +35,7 @@ use PHPUnit\Runner\TestSuiteSorter;
 use PHPUnit\TextUI\ResultPrinter as PHPUnitResultPrinter;
 use SebastianBergmann\Timer\Timer;
 use PHPUnit\Util\TestDox\NamePrettifier;
-use Andaniel05\PyramidalTests\Model\Record;
+use ThenLabs\PyramidalTests\Model\Record;
 
 class ResultPrinter extends PHPUnitResultPrinter
 {

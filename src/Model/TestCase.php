@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /*
-    Copyright (C) <2018>  <Andy Daniel Navarro Taño>
+    Copyright (C) <2020>  <Andy Daniel Navarro Taño>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,10 +18,10 @@ declare(strict_types=1);
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Andaniel05\PyramidalTests\Model;
+namespace ThenLabs\PyramidalTests\Model;
 
-use Andaniel05\PyramidalTests\Exception\DuplicatedTestException;
-use Andaniel05\PyramidalTests\Exception\InvalidMethodNameException;
+use ThenLabs\PyramidalTests\Exception\DuplicatedTestException;
+use ThenLabs\PyramidalTests\Exception\InvalidMethodNameException;
 use Closure;
 
 /**
@@ -214,10 +214,10 @@ class TestCase extends Model
 
         $parents = array_reverse($this->getParents());
         if (empty($parents)) {
-            $getThisTestCase = "\\Andaniel05\\PyramidalTests\\Model\\Record::getTestCase('{$this->getName()}')\n";
+            $getThisTestCase = "\\ThenLabs\\PyramidalTests\\Model\\Record::getTestCase('{$this->getName()}')\n";
         } else {
             $topParent = array_shift($parents);
-            $getThisTestCase = "\\Andaniel05\\PyramidalTests\\Model\\Record::getTestCase('{$topParent->getName()}')\n";
+            $getThisTestCase = "\\ThenLabs\\PyramidalTests\\Model\\Record::getTestCase('{$topParent->getName()}')\n";
             foreach ($parents as $parent) {
                 $getThisTestCase .= "->getTestCase('{$parent->getName()}')\n";
             }

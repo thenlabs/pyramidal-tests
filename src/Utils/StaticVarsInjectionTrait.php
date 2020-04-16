@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /*
-    Copyright (C) <2018>  <Andy Daniel Navarro Taño>
+    Copyright (C) <2020>  <Andy Daniel Navarro Taño>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@ declare(strict_types=1);
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Andaniel05\PyramidalTests\Utils;
+namespace ThenLabs\PyramidalTests\Utils;
 
 /**
  * @author Andy Daniel Navarro Taño <andaniel05@gmail.com>

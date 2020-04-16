@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /*
-    Copyright (C) <2018>  <Andy Daniel Navarro Taño>
+    Copyright (C) <2020>  <Andy Daniel Navarro Taño>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,14 +18,14 @@ declare(strict_types=1);
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Andaniel05\PyramidalTests\DSL;
+namespace ThenLabs\PyramidalTests\DSL;
 
-use Andaniel05\PyramidalTests\Model\Record;
-use Andaniel05\PyramidalTests\Model\Test;
-use Andaniel05\PyramidalTests\Model\Macro;
-use Andaniel05\PyramidalTests\Model\TestCase;
-use Andaniel05\PyramidalTests\Exception\MacroNotFoundException;
-use Andaniel05\PyramidalTests\Exception\InvalidContextException;
+use ThenLabs\PyramidalTests\Model\Record;
+use ThenLabs\PyramidalTests\Model\Test;
+use ThenLabs\PyramidalTests\Model\Macro;
+use ThenLabs\PyramidalTests\Model\TestCase;
+use ThenLabs\PyramidalTests\Exception\MacroNotFoundException;
+use ThenLabs\PyramidalTests\Exception\InvalidContextException;
 use Closure;
 
 /**

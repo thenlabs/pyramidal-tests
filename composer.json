@@ -1,5 +1,5 @@
 {
-    "name": "andaniel05/pyramidaltests",
+    "name": "thenlabs/pyramidaltests",
     "license": "GPL-3.0",
     "authors": [
         {
@@ -18,12 +18,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Andaniel05\\PyramidalTests\\": "src/"
+            "ThenLabs\\PyramidalTests\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Andaniel05\\PyramidalTests\\Tests\\": "tests/"
+            "ThenLabs\\PyramidalTests\\Tests\\": "tests/"
         }
     }
 }

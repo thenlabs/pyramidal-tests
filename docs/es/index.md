@@ -1,7 +1,5 @@
 # PyramidalTests
 
-[View in english](README.md)
-
 PyramidalTests es una extensión de [PHPUnit](https://phpunit.de/) que permite crear casos de prueba mediante el empleo de funciones anónimas. Su filosofía  está inspirada en proyectos como [mochajs][1], [jasmine][2], [peridotphp][3], etc.
 
 [1]: https://mochajs.org/
@@ -124,7 +122,7 @@ Una vez que [PHPUnit](https://phpunit.de/) sea invocado se ejecutarán todas las
 
     $ ./vendor/bin/phpunit --testdox
 
-![](full_results.png)
+![](img/full_results.png)
 
 Como puede ver existe un bloque de texto que indica que la sección superior se corresponde con el resultado de la ejecución de las pruebas de la extensión, mientras que la inferior con el resto de pruebas escritas en la manera tradicional de [PHPUnit](https://phpunit.de/).
 
@@ -146,7 +144,7 @@ Si en su proyecto pretende escribir TODAS las pruebas al estilo de la extensión
 
 De esta forma cuando [PHPUnit](https://phpunit.de/) sea ejecutado el resultado se mostrará de la siguiente manera.
 
-![](results.png)
+![](img/results.png)
 
 ### Especificando los márgenes de los casos de pruebas anidados.
 

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /*
-    Copyright (C) <2018>  <Andy Daniel Navarro Taño>
+    Copyright (C) <2020>  <Andy Daniel Navarro Taño>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,9 +18,9 @@ declare(strict_types=1);
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Andaniel05\PyramidalTests\Model;
+namespace ThenLabs\PyramidalTests\Model;
 
-use Andaniel05\PyramidalTests\Exception\InvalidTestCaseClassException;
+use ThenLabs\PyramidalTests\Exception\InvalidTestCaseClassException;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 use Closure;
 use ReflectionClass;
@@ -34,7 +34,7 @@ abstract class Record
     protected static $currentTestCase;
     protected static $testCases = [];
     protected static $globalMacros = [];
-    protected static $testCaseNamespace = 'Andaniel05\PyramidalTests\__Dynamic__';
+    protected static $testCaseNamespace = 'ThenLabs\PyramidalTests\__Dynamic__';
     protected static $testCaseClass = '\PHPUnit\Framework\TestCase';
 
     public static function setTestCaseNamespace(string $namespace): void
