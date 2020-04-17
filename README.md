@@ -3,5 +3,5 @@
 
 ## Documentation.
 
-1. [English](docs/en/index.md)
-2. [Español](docs/es/index.md)
+1. [English](http://thenlabs.org/docs/pyramidal-tests/master/en/index.html)
+2. [Español](http://thenlabs.org/docs/pyramidal-tests/master/es/index.html)
