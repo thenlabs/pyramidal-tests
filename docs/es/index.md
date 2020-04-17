@@ -14,11 +14,11 @@ Su principal objetivo consiste en extender las aplicaciones de [PHPUnit](https:/
 
 ## Instalación.
 
-### 1. Instalando con Composer.
+### Instalando con Composer.
 
     $ composer require --dev thenlabs/pyramidaltests dev-master
 
-### 2. Declarando la extensión en el archivo de configuración.
+### Declarando la extensión en el archivo de configuración.
 
 Agregue la siguiente declaración al archivo `phpunit.xml` o equivalente.
 
@@ -28,7 +28,7 @@ Agregue la siguiente declaración al archivo `phpunit.xml` o equivalente.
     </extensions>
 ```
 
-### 3. Declarando el DSL a usar.
+### Declarando el DSL a usar.
 
 En el archivo `bootstrap.php` o equivalente de su proyecto incluya una referencia al archivo `/vendor/thenlabs/pyramidaltests/src/DSL/PHPUnit.php`.
 

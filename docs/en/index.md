@@ -14,11 +14,11 @@ Its main objective is to extend the applications of [PHPUnit](https://phpunit.de
 
 ## Setup.
 
-### 1. Installing with Composer.
+### Installing with Composer.
 
     $ composer require --dev thenlabs/pyramidaltests dev-master
 
-### 2. Declaring extension in configuration file.
+### Declaring extension in configuration file.
 
 Add the next statement to `phpunit.xml` or equivalent.
 
@@ -28,7 +28,7 @@ Add the next statement to `phpunit.xml` or equivalent.
     </extensions>
 ```
 
-### 3. DSL declaration.
+### DSL declaration.
 
 In the `bootstrap.php` file or equivalent include the reference to `/vendor/thenlabs/pyramidaltests/src/DSL/PHPUnit.php`.
 
