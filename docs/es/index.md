@@ -16,7 +16,7 @@ Su principal objetivo consiste en extender las aplicaciones de [PHPUnit](https:/
 
 ### Instalando con Composer.
 
-    $ composer require --dev thenlabs/pyramidaltests dev-master
+    $ composer require --dev thenlabs/pyramidal-tests dev-master
 
 ### Declarando la extensión en el archivo de configuración.
 

@@ -16,7 +16,7 @@ Its main objective is to extend the applications of [PHPUnit](https://phpunit.de
 
 ### Installing with Composer.
 
-    $ composer require --dev thenlabs/pyramidaltests dev-master
+    $ composer require --dev thenlabs/pyramidal-tests dev-master
 
 ### Declaring extension in configuration file.
 
