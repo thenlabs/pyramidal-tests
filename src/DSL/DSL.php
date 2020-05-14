@@ -279,6 +279,14 @@ abstract class DSL
     public static function removeTest(string $description): void
     {
         $currentTestCase = Record::getCurrentTestCase();
+
         $currentTestCase->removeTest($description);
+    }
+
+    public static function removeTestCase(string $description): void
+    {
+        $currentTestCase = Record::getCurrentTestCase();
+
+        $currentTestCase->removeTestCase($description);
     }
 }

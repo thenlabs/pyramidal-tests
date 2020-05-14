@@ -118,6 +118,15 @@ class TestCase extends Model
         }
     }
 
+    public function removeTestCase(string $description): void
+    {
+        foreach ($this->testCases as $name => $testCase) {
+            if ($description == $testCase->getDescription()) {
+                unset($this->testCases[$name]);
+            }
+        }
+    }
+
     public function setParent(?TestCase $parent, bool $updateNamespace = true): void
     {
         $this->parent = $parent;

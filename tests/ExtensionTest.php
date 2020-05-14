@@ -2216,4 +2216,39 @@ class ExtensionTest extends BaseTestCase
         $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1::testTest2', $result);
         $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1\MyTestCase::testTest4', $result);
     }
+
+    public function testRemoveTestCase()
+    {
+        createMacro('my macro', function () {
+            test('test1', function () {
+                $this->assertTrue(true);
+            });
+
+            test('test2', function () {
+                $this->assertTrue(true);
+            });
+
+            test('test3', function () {
+                $this->assertTrue(true);
+            });
+
+            testCase('my test case', function () {
+                test('test4', function () {
+                    $this->assertTrue(true);
+                });
+            });
+        });
+
+        testCase('test case 1', function () {
+            useMacro('my macro');
+            removeTestCase('my test case');
+        });
+
+        $result = Extension::run();
+
+        $this->assertCount(3, $result->passed());
+        $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1::testTest1', $result);
+        $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1::testTest2', $result);
+        $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1::testTest3', $result);
+    }
 }

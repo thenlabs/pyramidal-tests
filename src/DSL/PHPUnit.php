@@ -104,3 +104,8 @@ function removeTest(string $description): void
 {
     DSL::removeTest($description);
 }
+
+function removeTestCase(string $description): void
+{
+    DSL::removeTestCase($description);
+}
