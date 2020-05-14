@@ -27,6 +27,8 @@ use ThenLabs\PyramidalTests\Exception\InvalidContextException;
 use ThenLabs\PyramidalTests\Exception\InvalidMethodNameException;
 use ThenLabs\PyramidalTests\Exception\InvalidTestCaseClassException;
 use ThenLabs\PyramidalTests\Exception\MacroNotFoundException;
+use ThenLabs\PyramidalTests\Exception\TestNotFoundException;
+use ThenLabs\PyramidalTests\Exception\TestCaseNotFoundException;
 use ThenLabs\PyramidalTests\Tests\Dummies\Observer;
 use ThenLabs\PyramidalTests\Tests\Dummies\SomeClass;
 use ThenLabs\PyramidalTests\Tests\Dummies\Subject;
@@ -2217,6 +2219,18 @@ class ExtensionTest extends BaseTestCase
         $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1\MyTestCase::testTest4', $result);
     }
 
+    public function testRemoveTest1()
+    {
+        $testDescription = uniqid();
+
+        $this->expectException(TestNotFoundException::class);
+        $this->expectExceptionMessage("The test with description '{$testDescription}' is not found.");
+
+        testCase('test case 1', function () use ($testDescription) {
+            removeTest($testDescription);
+        });
+    }
+
     public function testRemoveTestCase()
     {
         createMacro('my macro', function () {
@@ -2250,5 +2264,17 @@ class ExtensionTest extends BaseTestCase
         $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1::testTest1', $result);
         $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1::testTest2', $result);
         $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1::testTest3', $result);
+    }
+
+    public function testRemoveTestCase1()
+    {
+        $description = uniqid();
+
+        $this->expectException(TestCaseNotFoundException::class);
+        $this->expectExceptionMessage("The test case with description '{$description}' is not found.");
+
+        testCase('test case 1', function () use ($description) {
+            removeTestCase($description);
+        });
     }
 }

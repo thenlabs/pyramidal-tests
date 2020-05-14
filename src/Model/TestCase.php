@@ -22,6 +22,8 @@ namespace ThenLabs\PyramidalTests\Model;
 
 use ThenLabs\PyramidalTests\Exception\DuplicatedTestException;
 use ThenLabs\PyramidalTests\Exception\InvalidMethodNameException;
+use ThenLabs\PyramidalTests\Exception\TestNotFoundException;
+use ThenLabs\PyramidalTests\Exception\TestCaseNotFoundException;
 use Closure;
 
 /**
@@ -114,8 +116,11 @@ class TestCase extends Model
         foreach ($this->tests as $name => $test) {
             if ($description == $test->getDescription()) {
                 unset($this->tests[$name]);
+                return;
             }
         }
+
+        throw new TestNotFoundException($description);
     }
 
     public function removeTestCase(string $description): void
@@ -123,8 +128,11 @@ class TestCase extends Model
         foreach ($this->testCases as $name => $testCase) {
             if ($description == $testCase->getDescription()) {
                 unset($this->testCases[$name]);
+                return;
             }
         }
+
+        throw new TestCaseNotFoundException($description);
     }
 
     public function setParent(?TestCase $parent, bool $updateNamespace = true): void
