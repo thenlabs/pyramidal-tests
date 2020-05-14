@@ -94,3 +94,8 @@ function testIncomplete(string $description): void
 {
     DSL::testIncomplete($description);
 }
+
+function addComment(string $comment): void
+{
+    DSL::addComment($comment);
+}

@@ -32,6 +32,7 @@ abstract class Model
 
     protected $description;
     protected $closure;
+    protected $comments = [];
 
     public function __construct(string $description, ?Closure $closure = null)
     {
@@ -47,6 +48,27 @@ abstract class Model
     public function getClosure(): Closure
     {
         return $this->closure;
+    }
+
+    public function getComments(): array
+    {
+        return $this->comments;
+    }
+
+    public function setComments(array $comments): void
+    {
+        $this->comments = $comments;
+    }
+
+    public function getDocComments(): string
+    {
+        $result = '';
+
+        foreach ($this->comments as $comment) {
+            $result .= " * {$comment}\n";
+        }
+
+        return $result;
     }
 
     abstract public function getName(): string;

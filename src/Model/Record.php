@@ -36,6 +36,7 @@ abstract class Record
     protected static $globalMacros = [];
     protected static $testCaseNamespace = 'ThenLabs\PyramidalTests\__Dynamic__';
     protected static $testCaseClass = '\PHPUnit\Framework\TestCase';
+    protected static $comments = [];
 
     public static function setTestCaseNamespace(string $namespace): void
     {
@@ -168,5 +169,20 @@ abstract class Record
     public static function getGlobalMacro(string $description): ?Macro
     {
         return static::$globalMacros[$description] ?? null;
+    }
+
+    public static function addComment(string $comment): void
+    {
+        static::$comments[] = $comment;
+    }
+
+    public static function getComments(): array
+    {
+        return static::$comments;
+    }
+
+    public static function clearComments(): void
+    {
+        static::$comments = [];
     }
 }

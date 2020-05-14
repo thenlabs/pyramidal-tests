@@ -32,6 +32,7 @@ use ThenLabs\PyramidalTests\Tests\Dummies\SomeClass;
 use ThenLabs\PyramidalTests\Tests\Dummies\Subject;
 use ThenLabs\PyramidalTests\Tests\Dummies\TestCase as DummyTestCase;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
+use ReflectionClass;
 
 /**
  * @author Andy Daniel Navarro Taño <andaniel05@gmail.com>
@@ -2136,5 +2137,49 @@ class ExtensionTest extends BaseTestCase
         $this->assertCount(2, $result->passed());
         $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1\TestCase2::testTest1', $result);
         $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1\TestCase2::testTest2', $result);
+    }
+
+    public function testAddComment1()
+    {
+        testCase('test case 1', function () {
+            addComment('@group regression');
+            test('test1', function () {
+                $this->assertTrue(true);
+            });
+
+            test('test2', function () {
+                $this->assertTrue(true);
+            });
+        });
+
+        $result = Extension::run(['groups' => ['regression']]);
+
+        $this->assertCount(1, $result->passed());
+        $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1::testTest1', $result);
+    }
+
+    public function testAddComment2()
+    {
+        addComment('my comment 1');
+        testCase('test case 1', function () {
+            addComment('my comment 2');
+            test('test1', function () {
+                $this->assertTrue(true);
+            });
+
+            addComment('my comment 3');
+            createMethod('myMethod', function () {});
+
+            addComment('my comment 4');
+            createStaticMethod('myStaticMethod', function () {});
+        });
+
+        $result = Extension::run();
+
+        $this->assertCount(1, $result->passed());
+        $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1::testTest1', $result);
+
+        $class = new ReflectionClass('ThenLabs\PyramidalTests\__Dynamic__\TestCase1');
+        $this->assertContains('my comment 1', $class->getDocComment());
     }
 }

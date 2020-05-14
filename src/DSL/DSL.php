@@ -83,7 +83,10 @@ abstract class DSL
             Record::addTestCase($newTestCase);
         }
 
+        $newTestCase->setComments(Record::getComments());
+
         Record::setCurrentTestCase($newTestCase);
+        Record::clearComments();
 
         call_user_func($closure);
 
@@ -129,6 +132,10 @@ abstract class DSL
         }
 
         $test = new Test($description, $closure);
+        $test->setComments(Record::getComments());
+
+        Record::clearComments();
+
         $currentTestCase->addTest($test);
     }
 
@@ -262,5 +269,10 @@ abstract class DSL
 
         $test = new Test($description, $closure);
         $currentTestCase->addTest($test);
+    }
+
+    public static function addComment(string $comment): void
+    {
+        Record::addComment($comment);
     }
 }

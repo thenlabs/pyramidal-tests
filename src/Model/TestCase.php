@@ -229,7 +229,7 @@ class TestCase extends Model
         foreach ($this->tests as $test) {
             $testMethods .= "
                 /**
-                 * @testdox {$test->getDescription()}
+                 * @testdox {$test->getDescription()}\n{$test->getDocComments()}
                  */
                 public function {$test->getMethodName()}()
                 {
@@ -423,7 +423,7 @@ class TestCase extends Model
 
         return "
             /**
-             * @testdox {$this->getDescription()}
+             * @testdox {$this->getDescription()}\n{$this->getDocComments()}
              */
             class {$className} extends {$className}Base
             {
