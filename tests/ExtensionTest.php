@@ -2166,12 +2166,6 @@ class ExtensionTest extends BaseTestCase
             test('test1', function () {
                 $this->assertTrue(true);
             });
-
-            addComment('my comment 3');
-            createMethod('myMethod', function () {});
-
-            addComment('my comment 4');
-            createStaticMethod('myStaticMethod', function () {});
         });
 
         $result = Extension::run();
@@ -2181,5 +2175,10 @@ class ExtensionTest extends BaseTestCase
 
         $class = new ReflectionClass('ThenLabs\PyramidalTests\__Dynamic__\TestCase1');
         $this->assertContains('my comment 1', $class->getDocComment());
+
+        $methodTest1 = $class->getMethod('testTest1');
+        $methodTest1DocComment = $methodTest1->getDocComment();
+        $this->assertNotContains('my comment 1', $methodTest1DocComment);
+        $this->assertContains('my comment 2', $methodTest1DocComment);
     }
 }
