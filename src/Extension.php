@@ -125,7 +125,7 @@ class Extension implements Hook
                 }
             }
 
-            if (preg_match('/^line:(.+):(\d+)$/', $arguments['filter'], $matches)) {
+            if (preg_match('/^line: *(.+):(\d+)$/', $arguments['filter'], $matches)) {
                 $fileName = $matches[1];
                 $line = $matches[2];
 
