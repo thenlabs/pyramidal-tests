@@ -10,7 +10,7 @@ PyramidalTests is a [PHPUnit](https://phpunit.de/) extension that allows you to 
 
 Its main objective is to extend the applications of [PHPUnit](https://phpunit.de/) to the [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) field. In addition to this, another of its objectives is to facilitate the creation of test cases offering certain advantages such as the reuse of tests.
 
->You can clone and modify the project [PyramidalTests-Demo](https://github.com/thenlabs/PyramidalTests-Demo). It contains already implemented all the features shown here.
+>You can clone and modify the project [PyramidalTests-Demo](https://github.com/andaniel05/PyramidalTests-Demo). It contains already implemented all the features shown here.
 
 ## Setup.
 
