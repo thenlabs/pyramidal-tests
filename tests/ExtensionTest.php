@@ -2181,4 +2181,39 @@ class ExtensionTest extends BaseTestCase
         $this->assertNotContains('my comment 1', $methodTest1DocComment);
         $this->assertContains('my comment 2', $methodTest1DocComment);
     }
+
+    public function testRemoveTest()
+    {
+        createMacro('my macro', function () {
+            test('test1', function () {
+                $this->assertTrue(true);
+            });
+
+            test('test2', function () {
+                $this->assertTrue(true);
+            });
+
+            test('test3', function () {
+                $this->assertTrue(true);
+            });
+
+            testCase('my test case', function () {
+                test('test4', function () {
+                    $this->assertTrue(true);
+                });
+            });
+        });
+
+        testCase('test case 1', function () {
+            useMacro('my macro');
+            removeTest('test1');
+            removeTest('test3');
+        });
+
+        $result = Extension::run();
+
+        $this->assertCount(2, $result->passed());
+        $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1::testTest2', $result);
+        $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1\MyTestCase::testTest4', $result);
+    }
 }

@@ -99,3 +99,8 @@ function addComment(string $comment): void
 {
     DSL::addComment($comment);
 }
+
+function removeTest(string $description): void
+{
+    DSL::removeTest($description);
+}

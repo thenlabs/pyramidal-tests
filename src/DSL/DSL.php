@@ -275,4 +275,10 @@ abstract class DSL
     {
         Record::addComment($comment);
     }
+
+    public static function removeTest(string $description): void
+    {
+        $currentTestCase = Record::getCurrentTestCase();
+        $currentTestCase->removeTest($description);
+    }
 }

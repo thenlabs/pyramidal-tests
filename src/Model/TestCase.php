@@ -109,6 +109,15 @@ class TestCase extends Model
         return $this->parent;
     }
 
+    public function removeTest(string $description): void
+    {
+        foreach ($this->tests as $name => $test) {
+            if ($description == $test->getDescription()) {
+                unset($this->tests[$name]);
+            }
+        }
+    }
+
     public function setParent(?TestCase $parent, bool $updateNamespace = true): void
     {
         $this->parent = $parent;
