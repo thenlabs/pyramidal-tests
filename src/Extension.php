@@ -26,6 +26,7 @@ use PHPUnit\Framework\TestSuite as PHPUnitTestSuite;
 use PHPUnit\TextUI\Command;
 use ThenLabs\PyramidalTests\Model\Record;
 use ReflectionClass;
+use ReflectionFunction;
 use PHPUnit\Util\TestDox\CliTestDoxPrinter;
 
 /**
@@ -103,10 +104,10 @@ class Extension implements Hook
     {
         if (isset($arguments['filter'])) {
             $matches = [];
+
             if (preg_match('/^desc:(.+)$/', $arguments['filter'], $matches)) {
                 $description = trim($matches[1]);
 
-                $found = false;
                 foreach (Record::testCases() as $testCase) {
                     $className = str_replace('\\', '\\\\', $testCase->getClassName());
 
@@ -116,15 +117,38 @@ class Extension implements Hook
                     } else {
                         foreach ($testCase->getTests() as $test) {
                             if (strpos($test->getDescription(), $description) !== false) {
-                                $found = true;
                                 $arguments['filter'] = $className . '::' . $test->getMethodName();
                                 break;
                             }
                         }
                     }
+                }
+            }
 
-                    if ($found) {
+            if (preg_match('/^line:(.+):(\d+)$/', $arguments['filter'], $matches)) {
+                $fileName = $matches[1];
+                $line = $matches[2];
+
+                foreach (Record::testCases() as $testCase) {
+                    $className = str_replace('\\', '\\\\', $testCase->getClassName());
+                    $reflectionClosure = new ReflectionFunction($testCase->getClosure());
+
+                    if ($fileName == $reflectionClosure->getFileName() &&
+                        $line == $reflectionClosure->getStartLine()
+                    ) {
+                        $arguments['filter'] = $className;
                         break;
+                    } else {
+                        foreach ($testCase->getTests() as $test) {
+                            $reflectionClosure = new ReflectionFunction($test->getClosure());
+
+                            if ($fileName == $reflectionClosure->getFileName() &&
+                                $line == $reflectionClosure->getStartLine()
+                            ) {
+                                $arguments['filter'] = $className . '::' . $test->getMethodName();
+                                break;
+                            }
+                        }
                     }
                 }
             }

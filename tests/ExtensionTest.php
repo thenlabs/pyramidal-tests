@@ -2084,4 +2084,57 @@ class ExtensionTest extends BaseTestCase
         $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\MyTestCase::testTest1', $result);
         $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\MyTestCase::testTest3', $result);
     }
+
+    public function testFilteringTestsByLine1()
+    {
+        $test1 = function () {
+            $this->assertTrue(true);
+        };
+
+        $line = __LINE__ + 1;
+        $test2 = function () {
+            $this->assertTrue(true);
+        };
+
+        $test3 = function () {
+            $this->assertTrue(true);
+        };
+
+        testCase('test case 1', function () use ($test1, $test2, $test3) {
+            test('test1', $test1);
+            test('test2', $test2);
+            test('test3', $test3);
+        });
+
+        $result = Extension::run(['filter' => 'line:'.__FILE__.':'.$line]);
+
+        $this->assertCount(1, $result->passed());
+        $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1::testTest2', $result);
+    }
+
+    public function testFilteringTestsByLine2()
+    {
+        testCase('test case 1', function () {
+            test('test1', function () {
+                $this->assertTrue(true);
+            });
+
+            define('LINE', __LINE__ + 1);
+            testCase('test case 2', function () {
+                test('test1', function () {
+                    $this->assertTrue(true);
+                });
+
+                test('test2', function () {
+                    $this->assertTrue(true);
+                });
+            });
+        });
+
+        $result = Extension::run(['filter' => 'line:'.__FILE__.':'.LINE]);
+
+        $this->assertCount(2, $result->passed());
+        $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1\TestCase2::testTest1', $result);
+        $this->assertTestWasSuccessful('ThenLabs\PyramidalTests\__Dynamic__\TestCase1\TestCase2::testTest2', $result);
+    }
 }
